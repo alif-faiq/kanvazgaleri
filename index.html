@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Kanvaz Galeri — Media Seni &amp; Kreativitas Pekanbaru</title>
+  <meta name="description"
+    content="Kanvaz Galeri menyediakan media seni, perlengkapan melukis, produk kreatif, kebutuhan pembelajaran seni, dan custom product di Pekanbaru, Riau." />
+  <meta name="keywords"
+    content="kanvaz galeri, perlengkapan melukis pekanbaru, kanvas lukis, cat lukis, tote bag custom, kaos distro pekanbaru, media seni pekanbaru" />
+  <meta name="author" content="Kanvaz Galeri" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Kanvaz Galeri — Media Seni &amp; Kreativitas Pekanbaru" />
+  <meta property="og:description"
+    content="Kanvaz Galeri menyediakan media seni, perlengkapan melukis, produk kreatif, kebutuhan pembelajaran seni, dan custom product di Pekanbaru, Riau." />
+  <meta property="og:url" content="https://kanvazgaleri.com" />
+  <meta property="og:locale" content="id_ID" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/logokanvaz.svg" />
+
+  <!-- Fonts & Libraries -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#DC2626',
+            'primary-dark': '#991B1B',
+            'primary-light': '#FEF2F2',
+            dark: '#111111',
+          },
+          fontFamily: {
+            body: ['Manrope', 'sans-serif'],
+            mono: ['"DM Mono"', 'monospace'],
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Iconify -->
+  <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js" defer></script>
+</head>
+
+<body class="antialiased">
+
+  <!-- ============================================================
+       GRAIN OVERLAY
+       ============================================================ -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       SCROLL PROGRESS
+       ============================================================ -->
+  <div id="scroll-progress" role="progressbar" aria-label="Scroll progress" aria-valuenow="0" aria-valuemin="0"
+    aria-valuemax="100"></div>
+
+  <!-- ============================================================
+       CUSTOM CURSOR (Desktop only)
+       ============================================================ -->
+  <div id="cursor-dot" aria-hidden="true"></div>
+  <div id="cursor-ring" aria-hidden="true"></div>
+  <div id="cursor-label" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       PRELOADER
+       ============================================================ -->
+  <div id="preloader" role="status" aria-label="Memuat Kanvaz Galeri">
+    <div class="pre-logo" aria-hidden="true">
+      <span class="pre-logo-inner">KANVAZ GALERI</span>
+    </div>
+    <div class="pre-sub">Creative Supply — Pekanbaru</div>
+    <div class="pre-progress-wrapper">
+      <div class="pre-percent">0%</div>
+      <div class="pre-bar-track">
+        <div class="pre-bar-fill"></div>
+      </div>
+    </div>
+    <div class="pre-spinner" aria-hidden="true"></div>
+  </div>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <header id="navbar" role="banner">
+    <div class="container">
+      <nav class="flex items-center justify-between" aria-label="Navigasi utama">
+
+        <!-- Logo -->
+
+        <a href="#" class="nav-logo logo-brand" aria-label="Kanvaz Galeri — Beranda">
+          <img src="assets/icons/logokanvaz.svg" alt="Kanvaz Galeri Logo" class="logo-brand-image rounded-lg">
+          <span class="logo-brand-text">KANVAZ GALERI</span>
+        </a>
+
+        <!-- Desktop Nav Links -->
+        <ul class="nav-links-desktop flex items-center gap-8" role="list">
+          <li><a href="#produk" class="nav-link">Produk</a></li>
+          <li><a href="#tentang" class="nav-link">Tentang</a></li>
+          <li><a href="#galeri" class="nav-link">Galeri</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+          <li><a href="#kontak" class="nav-link">Kontak</a></li>
+        </ul>
+
+        <!-- Desktop CTA -->
+        <div class="nav-links-desktop flex items-center gap-3">
+          <a href="https://wa.me/6281378676055" target="_blank" rel="noopener noreferrer"
+            class="btn-primary magnetic-wrapper" data-cursor="OPEN" aria-label="Hubungi via WhatsApp">
+            <span class="magnetic-inner flex items-center gap-2">
+              <iconify-icon icon="ph:whatsapp-logo-bold" style="font-size: 1rem;"></iconify-icon>
+              WhatsApp
+            </span>
+          </a>
+        </div>
+
+        <!-- Hamburger -->
+        <button id="hamburger" class="hamburger" aria-label="Buka menu" aria-expanded="false"
+          aria-controls="mobile-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       MOBILE MENU
+       ============================================================ -->
+  <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu navigasi">
+    <div class="flex items-center justify-between mb-8">
+      <span class="footer-logo logo-brand">
+          <img src="assets/icons/logokanvaz.svg" alt="Kanvaz Galeri Logo" class="logo-brand-image rounded-lg">
+          <span class="logo-brand-text">KANVAZ GALERI</span>
+        </span>
+    </div>
+    <nav aria-label="Navigasi mobile">
+      <a href="#produk" class="mobile-menu-link">Produk</a>
+      <a href="#tentang" class="mobile-menu-link">Tentang</a>
+      <a href="#galeri" class="mobile-menu-link">Galeri</a>
+      <a href="#faq" class="mobile-menu-link">FAQ</a>
+      <a href="#kontak" class="mobile-menu-link">Kontak</a>
+    </nav>
+    <div class="mobile-menu-cta mt-8">
+      <a href="https://wa.me/6281378676055" target="_blank" rel="noopener noreferrer"
+        class="btn-primary w-full justify-center" style="display: flex;">
+        <iconify-icon icon="ph:whatsapp-logo-bold" style="font-size: 1.1rem;"></iconify-icon>
+        Hubungi via WhatsApp
+      </a>
+    </div>
+    <div class="mt-auto pt-8">
+      <p class="footer-tagline">Creative supplies for every idea.</p>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ============================================================
+         HERO SECTION
+         ============================================================ -->
+    <section id="hero" aria-labelledby="hero-heading">
+      <div class="container">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-screen py-24">
+
+          <!-- Hero Text -->
+          <div class="flex flex-col gap-6 lg:gap-7">
+
+            <div class="hero-label" aria-label="Pekanbaru, Riau">
+              Pekanbaru • Riau
+            </div>
+
+            <h1 id="hero-heading" class="hero-headline">
+              <span class="word-wrapper">
+                <span class="word-inner">Temukan</span>
+              </span>
+              <br aria-hidden="true">
+              <span class="word-wrapper">
+                <span class="word-inner">Ruang untuk</span>
+              </span>
+              <br aria-hidden="true">
+              <span class="word-wrapper">
+                <span class="word-inner" style="color: var(--primary);">Berkarya.</span>
+              </span>
+            </h1>
+
+            <p class="hero-sub">
+              Media seni, perlengkapan kreativitas, dan kebutuhan pembelajaran untuk membantu setiap ide menjadi karya.
+            </p>
+
+            <div class="hero-cta flex flex-wrap gap-3 items-center">
+              <a href="https://wa.me/6281378676055?text=Halo%20Kanvaz%20Galeri!%20Saya%20ingin%20memesan%20produk."
+                target="_blank" rel="noopener noreferrer" class="btn-primary magnetic-wrapper" data-cursor="OPEN"
+                aria-label="Pesan via WhatsApp">
+                <span class="magnetic-inner flex items-center gap-2">
+                  <iconify-icon icon="ph:whatsapp-logo-bold" style="font-size: 1rem;"></iconify-icon>
+                  Pesan via WhatsApp
+                </span>
+              </a>
+              <a href="#produk" class="btn-secondary" aria-label="Lihat produk kami">
+                Lihat Produk
+                <iconify-icon icon="ph:arrow-down-bold" style="font-size: 0.85rem;"></iconify-icon>
+              </a>
+            </div>
+
+            <div class="hero-meta" role="contentinfo">
+              <span class="hero-meta-item">
+                <span class="hero-meta-dot" aria-hidden="true"></span>
+                Senin–Sabtu
+              </span>
+              <span class="hero-meta-item">
+                <span class="hero-meta-dot" aria-hidden="true"></span>
+                09.00–20.00 WIB
+              </span>
+            </div>
+
+          </div>
+
+          <!-- Hero Visual -->
+          <div class="hero-visual relative">
+            <div class="parallax-img-wrapper" style="aspect-ratio: 3/4; max-height: 75vh;">
+              <img id="hero-img-main" src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&q=80"
+                alt="Aktivitas melukis — foto sementara" class="parallax-img img-cover" style="border-radius: 1.25rem;"
+                fetchpriority="high" decoding="async" data-cursor="VIEW" />
+            </div>
+
+            <!-- Floating badge 1 -->
+            <div class="hero-badge hero-badge-1" aria-hidden="true">
+              <span class="dot"></span>
+              Media Seni Kreatif
+            </div>
+
+            <!-- Floating badge 2 -->
+            <div class="hero-badge hero-badge-2" aria-hidden="true">
+              <iconify-icon icon="ph:palette-bold" style="color: var(--primary); font-size: 0.9rem;"></iconify-icon>
+              Perlengkapan Lengkap
+            </div>
+
+            <!-- Floating small image -->
+            <div class="hero-float-img" aria-hidden="true">
+              <img id="hero-img-float" src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=400&q=75"
+                alt="Foto sementara — produk kreatif" loading="lazy" decoding="async" />
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         MARQUEE
+         ============================================================ -->
+    <div class="marquee-section" aria-hidden="true">
+      <div class="marquee-track">
+        <div class="marquee-content">
+          <span class="marquee-item">ART SUPPLIES <span class="marquee-sep">✦</span></span>
+          <span class="marquee-item">CREATIVE MEDIA <span class="marquee-sep">✦</span></span>
+          <span class="marquee-item">CUSTOM PRODUCTS <span class="marquee-sep">✦</span></span>
+          <span class="marquee-item">SCHOOL ART MATERIALS <span class="marquee-sep">✦</span></span>
+          <span class="marquee-item">PEKANBARU <span class="marquee-sep">✦</span></span>
+          <span class="marquee-item">KANVAZ GALERI <span class="marquee-sep">✦</span></span>
+          <span class="marquee-item">KANVAS LUKIS <span class="marquee-sep">✦</span></span>
+          <span class="marquee-item">CAT LUKIS <span class="marquee-sep">✦</span></span>
+          <span class="marquee-item">TOTE BAG <span class="marquee-sep">✦</span></span>
+          <span class="marquee-item">KAOS DISTRO <span class="marquee-sep">✦</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         WHAT WE OFFER
+         ============================================================ -->
+    <section class="py-section" aria-labelledby="offer-heading">
+      <div class="container">
+
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+
+          <!-- Left: Heading -->
+          <div class="sticky top-28 self-start">
+            <span class="section-label reveal-fade">Yang Kami Sediakan</span>
+            <h2 id="offer-heading" class="section-heading mt-4 animate-heading">
+              <span class="word-wrapper"><span class="word-inner">Everything</span></span>
+              <span class="word-wrapper"><span class="word-inner"> you</span></span>
+              <br aria-hidden="true">
+              <span class="word-wrapper"><span class="word-inner">need</span></span>
+              <span class="word-wrapper"><span class="word-inner"> to</span></span>
+              <br aria-hidden="true">
+              <span class="word-wrapper" style="color:var(--primary);"><span class="word-inner">create.</span></span>
+            </h2>
+            <p class="section-sub mt-5 reveal-up">
+              Dari kanvas kosong hingga produk jadi — Kanvaz Galeri menyediakan semua yang kamu butuhkan untuk berkarya.
+            </p>
+          </div>
+
+          <!-- Right: List -->
+          <div>
+            <div class="offer-item reveal-up flex items-start gap-4">
+              <span class="offer-number">01</span>
+              <div class="flex-1">
+                <div class="flex items-center justify-between">
+                  <h3 class="offer-title">Media Melukis</h3>
+                  <iconify-icon class="offer-arrow" icon="ph:arrow-right-bold"></iconify-icon>
+                </div>
+                <p class="offer-desc">Kanvas, kuas, cat akrilik, cat air, cat minyak, palet, dan semua media yang
+                  mendukung proses melukismu.</p>
+              </div>
+            </div>
+
+            <div class="offer-item reveal-up flex items-start gap-4">
+              <span class="offer-number">02</span>
+              <div class="flex-1">
+                <div class="flex items-center justify-between">
+                  <h3 class="offer-title">Media Pembelajaran</h3>
+                  <iconify-icon class="offer-arrow" icon="ph:arrow-right-bold"></iconify-icon>
+                </div>
+                <p class="offer-desc">Bahan seni rupa untuk kebutuhan sekolah, kegiatan belajar siswa, hingga
+                  perlengkapan guru seni di kelas.</p>
+              </div>
+            </div>
+
+            <div class="offer-item reveal-up flex items-start gap-4">
+              <span class="offer-number">03</span>
+              <div class="flex-1">
+                <div class="flex items-center justify-between">
+                  <h3 class="offer-title">Produk Kreatif</h3>
+                  <iconify-icon class="offer-arrow" icon="ph:arrow-right-bold"></iconify-icon>
+                </div>
+                <p class="offer-desc">Tote bag, payung lukis, sandal lukis — media seni yang fungsional dan siap
+                  dijadikan karya personal.</p>
+              </div>
+            </div>
+
+            <div class="offer-item reveal-up flex items-start gap-4">
+              <span class="offer-number">04</span>
+              <div class="flex-1">
+                <div class="flex items-center justify-between">
+                  <h3 class="offer-title">Custom Apparel</h3>
+                  <iconify-icon class="offer-arrow" icon="ph:arrow-right-bold"></iconify-icon>
+                </div>
+                <p class="offer-desc">Kaos distro lokal dan custom design sesuai keinginanmu. Dari konsep hingga produk
+                  jadi.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         BENTO GRID
+         ============================================================ -->
+    <section class="py-section" style="background: var(--bg-secondary);" aria-labelledby="bento-heading">
+      <div class="container">
+
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+          <div>
+            <span class="section-label reveal-fade">Kategori Produk</span>
+            <h2 id="bento-heading" class="section-heading mt-3 reveal-up">
+              Semua yang <span class="text-red">kamu</span> butuhkan.
+            </h2>
+          </div>
+          <a href="#produk" class="btn-secondary reveal-fade self-start sm:self-auto" style="flex-shrink:0;">
+            Lihat Semua Produk
+          </a>
+        </div>
+
+        <div class="bento-grid reveal-fade" data-cursor="EXPLORE">
+          <!-- Large card: Canvas -->
+          <div class="bento-item bento-large" data-cursor="EXPLORE">
+            <img id="bento-canvas" src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=900&q=80"
+              alt="Kanvas & Media Melukis — foto sementara" class="bento-img" loading="lazy" decoding="async" />
+            <div class="bento-overlay"></div>
+            <div class="bento-label">
+              <div class="bento-cat">Media Seni</div>
+              <div class="bento-title">Kanvas &amp; Media Melukis</div>
+            </div>
+          </div>
+
+          <!-- Medium: Paint -->
+          <div class="bento-item bento-tall" data-cursor="EXPLORE">
+            <img id="bento-paint" src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600&q=80"
+              alt="Cat Lukis — foto sementara" class="bento-img" loading="lazy" decoding="async" />
+            <div class="bento-overlay"></div>
+            <div class="bento-label">
+              <div class="bento-cat">Cat & Pigmen</div>
+              <div class="bento-title">Cat Lukis</div>
+            </div>
+          </div>
+
+          <!-- Medium: School -->
+          <div class="bento-item bento-tall" data-cursor="EXPLORE">
+            <img id="bento-school" src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&q=80"
+              alt="Media Pembelajaran Seni — foto sementara" class="bento-img" loading="lazy" decoding="async" />
+            <div class="bento-overlay"></div>
+            <div class="bento-label">
+              <div class="bento-cat">Pendidikan</div>
+              <div class="bento-title">Media Pembelajaran</div>
+            </div>
+          </div>
+
+          <!-- Small: Tote -->
+          <div class="bento-item" data-cursor="EXPLORE">
+            <img id="bento-tote" src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80"
+              alt="Tote Bag — foto sementara" class="bento-img" loading="lazy" decoding="async" />
+            <div class="bento-overlay"></div>
+            <div class="bento-label">
+              <div class="bento-cat">Produk Kreatif</div>
+              <div class="bento-title">Tote Bag</div>
+            </div>
+          </div>
+
+          <!-- Small: Apparel -->
+          <div class="bento-item" data-cursor="EXPLORE">
+            <img id="bento-apparel" src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80"
+              alt="Kaos Custom — foto sementara" class="bento-img" loading="lazy" decoding="async" />
+            <div class="bento-overlay"></div>
+            <div class="bento-label">
+              <div class="bento-cat">Distro Lokal</div>
+              <div class="bento-title">Kaos Custom</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PRODUCT SHOWCASE
+         ============================================================ -->
+    <section id="produk" class="py-section" aria-labelledby="product-heading">
+      <div class="container">
+
+        <div class="flex flex-col items-center text-center mb-12">
+          <span class="section-label reveal-fade">Pilihan Produk</span>
+          <h2 id="product-heading" class="section-heading mt-4 reveal-up">
+            Pilihan untuk setiap <span class="text-red">karya.</span>
+          </h2>
+          <p class="section-sub mt-4 reveal-up" style="text-align: center; margin-inline: auto;">
+            Dari bahan dasar melukis hingga produk kreatif siap pakai — temukan semua di Kanvaz Galeri.
+          </p>
+        </div>
+
+        <!-- Product cards injected by JS -->
+        <div id="product-grid" class="stagger-group grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          aria-label="Daftar produk">
+          <!-- Populated by main.js initProducts() -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ABOUT SECTION
+         ============================================================ -->
+    <section id="tentang" class="py-section" style="background: var(--bg-secondary);" aria-labelledby="about-heading">
+      <div class="container">
+
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+          <!-- Image -->
+          <div class="parallax-img-wrapper reveal-left" style="aspect-ratio: 3/4; max-height: 65vh; order: 2;"
+            aria-hidden="true">
+            <img id="about-img" src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=700&q=80"
+              alt="Aktivitas seni di Kanvaz Galeri — foto sementara" class="parallax-img img-cover" loading="lazy"
+              decoding="async" />
+          </div>
+
+          <!-- Text -->
+          <div style="order: 1;">
+            <span class="section-label reveal-fade">Tentang Kami</span>
+            <h2 id="about-heading" class="section-heading mt-4 reveal-up">
+              Ruang untuk <span class="text-red">setiap</span><br>kreativitas.
+            </h2>
+
+            <p class="section-sub mt-5 reveal-up">
+              Kanvaz Galeri hadir untuk menyediakan ruang dan kebutuhan bagi siapa saja yang ingin bereksplorasi melalui
+              seni dan kreativitas.
+            </p>
+
+            <div class="mt-6 flex flex-col gap-3 reveal-up">
+              <div class="about-bullet">
+                <span class="about-bullet-dot" aria-hidden="true"></span>
+                Berbasis di Pekanbaru, Riau — melayani kebutuhan seni warga lokal dan sekitarnya.
+              </div>
+              <div class="about-bullet">
+                <span class="about-bullet-dot" aria-hidden="true"></span>
+                Menyediakan kebutuhan seni rupa dari level pemula hingga profesional.
+              </div>
+              <div class="about-bullet">
+                <span class="about-bullet-dot" aria-hidden="true"></span>
+                Mendukung kebutuhan pembelajaran seni untuk sekolah dan institusi pendidikan.
+              </div>
+              <div class="about-bullet">
+                <span class="about-bullet-dot" aria-hidden="true"></span>
+                Menyediakan produk kreatif siap pakai maupun custom sesuai kebutuhan.
+              </div>
+              <div class="about-bullet">
+                <span class="about-bullet-dot" aria-hidden="true"></span>
+                Membuka peluang custom product untuk individu, komunitas, maupun brand lokal.
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-3 mt-8 reveal-up">
+              <span class="tag red">
+                <iconify-icon icon="ph:map-pin-bold" style="font-size:0.75rem;"></iconify-icon>
+                Pekanbaru, Riau
+              </span>
+              <span class="tag">
+                <iconify-icon icon="ph:palette-bold" style="font-size:0.75rem;"></iconify-icon>
+                Art Supplies
+              </span>
+              <span class="tag">
+                <iconify-icon icon="ph:paint-brush-bold" style="font-size:0.75rem;"></iconify-icon>
+                Creative Media
+              </span>
+              <span class="tag">
+                <iconify-icon icon="ph:graduation-cap-bold" style="font-size:0.75rem;"></iconify-icon>
+                School Materials
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CREATIVE STORY SECTION
+         ============================================================ -->
+    <section class="py-section" aria-labelledby="story-heading">
+      <div class="container">
+
+        <div class="text-center mb-16">
+          <span class="section-label reveal-fade" style="justify-content: center;">Proses Berkarya</span>
+          <h2 id="story-heading" class="section-heading mt-4 reveal-up">
+            From blank canvas to<br><span class="text-red">something personal.</span>
+          </h2>
+          <p class="section-sub mt-4 reveal-up" style="margin-inline: auto; text-align:center;">
+            Setiap karya dimulai dari kanvas kosong dan satu langkah kecil.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 stagger-group">
+
+          <!-- Story Step 1 -->
+          <div class="story-step stagger-item" style="grid-column: span 2;">
+            <div
+              style="border-radius: 1.25rem; overflow: hidden; aspect-ratio: 3/2; position: relative; background: var(--bg-secondary);">
+              <img id="story-img-1" src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=700&q=80"
+                alt="Kanvas kosong — foto sementara" class="img-cover" loading="lazy" decoding="async" />
+              <div
+                style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 55%);">
+              </div>
+              <div style="position: absolute; bottom: 1.25rem; left: 1.25rem;">
+                <p class="bento-cat">01</p>
+                <p class="bento-title">Kanvas Kosong</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Story Step 2 -->
+          <div class="story-step stagger-item">
+            <div
+              style="border-radius: 1.25rem; overflow: hidden; aspect-ratio: 3/4; position: relative; background: var(--bg-secondary);">
+              <img id="story-img-2" src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600&q=80"
+                alt="Alat seni — foto sementara" class="img-cover" loading="lazy" decoding="async" />
+              <div
+                style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 55%);">
+              </div>
+              <div style="position: absolute; bottom: 1.25rem; left: 1.25rem;">
+                <p class="bento-cat">02</p>
+                <p class="bento-title">Tools</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Story Step 3 -->
+          <div class="story-step stagger-item">
+            <div
+              style="border-radius: 1.25rem; overflow: hidden; aspect-ratio: 3/4; position: relative; background: var(--bg-secondary);">
+              <img id="story-img-3" src="https://images.unsplash.com/photo-1576672843344-f01907a9d40c?w=600&q=80"
+                alt="Warna cat — foto sementara" class="img-cover" loading="lazy" decoding="async" />
+              <div
+                style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 55%);">
+              </div>
+              <div style="position: absolute; bottom: 1.25rem; left: 1.25rem;">
+                <p class="bento-cat">03</p>
+                <p class="bento-title">Color</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Story Step 4 -->
+          <div class="story-step stagger-item" style="grid-column: span 2;">
+            <div
+              style="border-radius: 1.25rem; overflow: hidden; aspect-ratio: 3/2; position: relative; background: var(--bg-secondary);">
+              <img id="story-img-4" src="https://images.unsplash.com/photo-1576672843344-f01907a9d40c?w=600&q=80"
+                alt="Proses melukis — foto sementara" class="img-cover" loading="lazy" decoding="async" />
+              <div
+                style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 55%);">
+              </div>
+              <div style="position: absolute; bottom: 1.25rem; left: 1.25rem;">
+                <p class="bento-cat">04</p>
+                <p class="bento-title">Process</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Story Step 5 -->
+          <div class="story-step stagger-item" style="grid-column: span 3;">
+            <div
+              style="border-radius: 1.25rem; overflow: hidden; aspect-ratio: 16/9; position: relative; background: var(--bg-secondary);">
+              <img id="story-img-5" src="https://images.unsplash.com/photo-1578926288207-a90a5366759d?w=900&q=80"
+                alt="Karya final — foto sementara" class="img-cover" loading="lazy" decoding="async" />
+              <div
+                style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 55%);">
+              </div>
+              <div style="position: absolute; bottom: 1.5rem; left: 1.5rem;">
+                <p class="bento-cat">05</p>
+                <p class="bento-title" style="font-size: 1.35rem;">Final Work</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="text-center mt-10 reveal-up">
+          <p class="section-sub" style="margin-inline: auto; text-align: center; font-style: italic;">
+            "Setiap karya dimulai dari satu langkah — dan Kanvaz Galeri ada untuk menemanimu di setiap tahapnya."
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SCHOOL / EDUCATION SECTION
+         ============================================================ -->
+    <section class="py-section" style="background: var(--bg-secondary);" aria-labelledby="school-heading">
+      <div class="container">
+
+        <div class="school-dark-block p-8 lg:p-12">
+          <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center" style="position: relative; z-index: 1;">
+
+            <!-- Image -->
+            <div class="parallax-img-wrapper reveal-left" style="aspect-ratio: 4/3; max-height: 55vh;">
+              <img id="school-img" src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=700&q=80"
+                alt="Kegiatan seni di sekolah — foto sementara" class="parallax-img img-cover" loading="lazy"
+                decoding="async" />
+            </div>
+
+            <!-- Content -->
+            <div class="reveal-right">
+              <span class="section-label" style="color: var(--primary);">Untuk Sekolah</span>
+              <h2 id="school-heading" class="section-heading mt-4" style="color: white;">
+                Untuk Ruang Kelas,<br><span class="text-red">Untuk Kreativitas.</span>
+              </h2>
+              <p class="mt-4"
+                style="color: rgba(255,255,255,0.55); font-size: 0.95rem; line-height: 1.75; max-width: 44ch;">
+                Kanvaz Galeri menyediakan kebutuhan seni untuk kegiatan belajar mengajar, baik untuk siswa maupun guru
+                seni di sekolah.
+              </p>
+
+              <div class="mt-8 flex flex-col">
+                <div class="school-feature">
+                  <div class="school-feature-icon">
+                    <iconify-icon icon="ph:paint-bucket-bold"></iconify-icon>
+                  </div>
+                  <div class="school-feature-text">
+                    <div class="label">Media Pembelajaran Seni</div>
+                    <div class="desc">Kanvas, cat, kuas, dan semua bahan seni rupa untuk kegiatan kelas.</div>
+                  </div>
+                </div>
+                <div class="school-feature">
+                  <div class="school-feature-icon">
+                    <iconify-icon icon="ph:book-open-bold"></iconify-icon>
+                  </div>
+                  <div class="school-feature-text">
+                    <div class="label">Bahan Kegiatan Sekolah</div>
+                    <div class="desc">Perlengkapan untuk kegiatan seni, prakarya, dan ekskul kreatif.</div>
+                  </div>
+                </div>
+                <div class="school-feature">
+                  <div class="school-feature-icon">
+                    <iconify-icon icon="ph:student-bold"></iconify-icon>
+                  </div>
+                  <div class="school-feature-text">
+                    <div class="label">Kebutuhan Kreativitas Siswa</div>
+                    <div class="desc">Media seni yang mendukung eksplorasi kreativitas anak di kelas maupun rumah.</div>
+                  </div>
+                </div>
+                <div class="school-feature" style="border-bottom: none;">
+                  <div class="school-feature-icon">
+                    <iconify-icon icon="ph:chalkboard-teacher-bold"></iconify-icon>
+                  </div>
+                  <div class="school-feature-text">
+                    <div class="label">Kebutuhan Guru Seni</div>
+                    <div class="desc">Konsultasi dan pengadaan bahan seni untuk kebutuhan pengajaran.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-8">
+                <a href="https://wa.me/6281378676055?text=Halo%20Kanvaz%20Galeri!%20Saya%20ingin%20konsultasi%20kebutuhan%20seni%20untuk%20sekolah."
+                  target="_blank" rel="noopener noreferrer" class="btn-primary magnetic-wrapper" data-cursor="OPEN"
+                  aria-label="Konsultasikan kebutuhan sekolah via WhatsApp">
+                  <span class="magnetic-inner flex items-center gap-2">
+                    <iconify-icon icon="ph:chat-circle-bold" style="font-size: 1rem;"></iconify-icon>
+                    Konsultasikan Kebutuhan Sekolah
+                  </span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CUSTOM PRODUCT SECTION
+         ============================================================ -->
+    <section class="custom-section py-section" aria-labelledby="custom-heading">
+      <div class="container" style="position: relative; z-index: 1;">
+
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+          <!-- Text -->
+          <div class="reveal-left">
+            <span class="section-label" style="color: var(--primary);">Custom Design</span>
+            <h2 id="custom-heading" class="section-heading mt-4" style="color: white;">
+              Make it <span class="text-red">yours.</span>
+            </h2>
+            <p class="mt-4" style="color: rgba(255,255,255,0.5); font-size: 1rem; line-height: 1.75; max-width: 44ch;">
+              Kaos, tote bag, dan produk kreatif dengan desain yang dapat disesuaikan — dari ide hingga produk jadi
+              sesuai keinginanmu.
+            </p>
+
+            <div class="mt-6 flex flex-col gap-4">
+              <div class="flex items-center gap-3">
+                <div
+                  style="width: 36px; height: 36px; border-radius: 50%; background: rgba(220,38,38,0.15); border: 1px solid rgba(220,38,38,0.3); display:flex; align-items:center; justify-content:center; color: var(--primary); flex-shrink:0;">
+                  <iconify-icon icon="ph:t-shirt-bold" style="font-size: 1rem;"></iconify-icon>
+                </div>
+                <p style="color: rgba(255,255,255,0.7); font-size: 0.875rem;">Kaos dengan desain custom dan print
+                  berkualitas.</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <div
+                  style="width: 36px; height: 36px; border-radius: 50%; background: rgba(220,38,38,0.15); border: 1px solid rgba(220,38,38,0.3); display:flex; align-items:center; justify-content:center; color: var(--primary); flex-shrink:0;">
+                  <iconify-icon icon="ph:bag-bold" style="font-size: 1rem;"></iconify-icon>
+                </div>
+                <p style="color: rgba(255,255,255,0.7); font-size: 0.875rem;">Tote bag custom untuk individu, komunitas,
+                  atau event.</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <div
+                  style="width: 36px; height: 36px; border-radius: 50%; background: rgba(220,38,38,0.15); border: 1px solid rgba(220,38,38,0.3); display:flex; align-items:center; justify-content:center; color: var(--primary); flex-shrink:0;">
+                  <iconify-icon icon="ph:sparkle-bold" style="font-size: 1rem;"></iconify-icon>
+                </div>
+                <p style="color: rgba(255,255,255,0.7); font-size: 0.875rem;">Produk kreatif lain yang bisa disesuaikan
+                  dengan kebutuhanmu.</p>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-3 mt-8">
+              <a href="https://wa.me/6281378676055?text=Halo%20Kanvaz%20Galeri!%20Saya%20ingin%20diskusi%20tentang%20custom%20produk."
+                target="_blank" rel="noopener noreferrer" class="btn-primary magnetic-wrapper" data-cursor="OPEN"
+                aria-label="Diskusikan custom produk via WhatsApp">
+                <span class="magnetic-inner flex items-center gap-2">
+                  <iconify-icon icon="ph:pencil-line-bold" style="font-size: 1rem;"></iconify-icon>
+                  Diskusikan Custom
+                </span>
+              </a>
+              <a href="https://www.instagram.com/kanvaz_galeri/" target="_blank" rel="noopener noreferrer"
+                class="btn-ghost" aria-label="Lihat portofolio di Instagram">
+                <iconify-icon icon="ph:instagram-logo-bold" style="font-size: 1rem;"></iconify-icon>
+                Lihat Portofolio
+              </a>
+            </div>
+          </div>
+
+          <!-- Image Collage -->
+          <div class="reveal-right grid grid-cols-2 gap-3">
+            <div style="border-radius: 1.25rem; overflow: hidden; aspect-ratio: 3/4;">
+              <img id="custom-img-1" src="https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=500&q=75"
+                alt="Custom kaos — foto sementara" class="img-cover" loading="lazy" decoding="async" />
+            </div>
+            <div class="flex flex-col gap-3">
+              <div style="border-radius: 1.25rem; overflow: hidden; aspect-ratio: 1/1; flex:1;">
+                <img id="custom-img-2" src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&q=75"
+                  alt="Tote bag custom — foto sementara" class="img-cover" loading="lazy" decoding="async" />
+              </div>
+              <div
+                style="background: var(--primary); border-radius: 1.25rem; padding: 1.5rem; display:flex; flex-direction:column; gap: 0.5rem;">
+                <p
+                  style="font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.6);">
+                  Custom Order</p>
+                <p
+                  style="font-family: var(--font-body); font-size: 1.1rem; font-weight: 700; color: white; line-height: 1.25;">
+                  Desain<br>sesukamu.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         TRUST / SOCIAL PROOF
+         ============================================================ -->
+    <section class="trust-section py-section" aria-labelledby="trust-heading">
+      <div class="container">
+
+        <div class="text-center mb-12">
+          <span class="section-label reveal-fade" style="justify-content: center;">Kepercayaan</span>
+          <h2 id="trust-heading" class="section-heading mt-4 reveal-up">
+            Trusted for creative learning<br>&amp; <span class="text-red">artistic exploration.</span>
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 stagger-group">
+          <div class="trust-stat stagger-item text-center">
+            <span class="num" style="color: var(--primary);">✦</span>
+            <span class="label" style="margin-top: 0.75rem;">Creative Supplies</span>
+            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem; line-height: 1.5;">Pilihan
+              lengkap perlengkapan seni untuk semua kebutuhan kreatif.</p>
+          </div>
+          <div class="trust-stat stagger-item text-center">
+            <span class="num" style="color: var(--primary);">✦</span>
+            <span class="label" style="margin-top: 0.75rem;">School Materials</span>
+            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem; line-height: 1.5;">Media
+              pembelajaran seni rupa untuk sekolah dan institusi pendidikan.</p>
+          </div>
+          <div class="trust-stat stagger-item text-center">
+            <span class="num" style="color: var(--primary);">✦</span>
+            <span class="label" style="margin-top: 0.75rem;">Custom Products</span>
+            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem; line-height: 1.5;">Produk
+              kreatif custom sesuai kebutuhan dan desain kamu.</p>
+          </div>
+          <div class="trust-stat stagger-item text-center">
+            <span class="num" style="color: var(--primary);">✦</span>
+            <span class="label" style="margin-top: 0.75rem;">Pekanbaru</span>
+            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem; line-height: 1.5;">Berbasis
+              di Pekanbaru, melayani kebutuhan seni warga lokal dan sekitarnya.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         GALLERY
+         ============================================================ -->
+    <section id="galeri" class="py-section" aria-labelledby="gallery-heading">
+      <div class="container">
+
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+          <div>
+            <span class="section-label reveal-fade">Galeri</span>
+            <h2 id="gallery-heading" class="section-heading mt-3 reveal-up">
+              Karya &amp; <span class="text-red">Kreasi.</span>
+            </h2>
+          </div>
+          <a href="https://www.instagram.com/kanvaz_galeri/" target="_blank" rel="noopener noreferrer"
+            class="btn-secondary reveal-fade self-start sm:self-auto" aria-label="Lihat lebih banyak di Instagram">
+            <iconify-icon icon="ph:instagram-logo-bold" style="font-size: 1rem;"></iconify-icon>
+            Instagram Kami
+          </a>
+        </div>
+
+        <div id="gallery-grid" class="gallery-masonry reveal-fade" aria-label="Galeri foto Kanvaz Galeri">
+          <!-- Populated by main.js initGallery() -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FAQ SECTION
+         ============================================================ -->
+    <section id="faq" class="py-section" style="background: var(--bg-secondary);" aria-labelledby="faq-heading">
+      <div class="container">
+
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+
+          <!-- Left -->
+          <div class="sticky top-28 self-start">
+            <span class="section-label reveal-fade">FAQ</span>
+            <h2 id="faq-heading" class="section-heading mt-4 reveal-up">
+              Ada yang ingin<br>ditanyakan?
+            </h2>
+            <p class="section-sub mt-4 reveal-up">
+              Berikut jawaban dari pertanyaan yang sering ditanyakan. Butuh info lebih lanjut? Chat kami langsung!
+            </p>
+            <div class="mt-6 reveal-up">
+              <a href="https://wa.me/6281378676055?text=Halo%20Kanvaz%20Galeri!%20Saya%20punya%20pertanyaan."
+                target="_blank" rel="noopener noreferrer" class="btn-primary" aria-label="Tanya langsung via WhatsApp">
+                <iconify-icon icon="ph:whatsapp-logo-bold" style="font-size: 1rem;"></iconify-icon>
+                Tanya Langsung
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: FAQ Items -->
+          <div>
+            <div class="faq-item reveal-up">
+              <button class="faq-trigger" aria-expanded="false" aria-controls="faq-1">
+                <span class="faq-q">Apakah bisa memesan melalui WhatsApp?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-body" id="faq-1" role="region">
+                <div class="faq-body-inner">
+                  Ya, kamu bisa langsung memesan melalui WhatsApp ke nomor 0813-7867-6055. Tim kami siap membantu kamu
+                  memilih produk yang tepat sesuai kebutuhan.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item reveal-up">
+              <button class="faq-trigger" aria-expanded="false" aria-controls="faq-2">
+                <span class="faq-q">Apakah Kanvaz Galeri menyediakan kebutuhan seni untuk sekolah?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-body" id="faq-2" role="region">
+                <div class="faq-body-inner">
+                  Ya, kami melayani pengadaan kebutuhan seni untuk sekolah — mulai dari kanvas, cat, kuas, hingga media
+                  pembelajaran lainnya. Hubungi kami untuk konsultasi kebutuhan sekolahmu.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item reveal-up">
+              <button class="faq-trigger" aria-expanded="false" aria-controls="faq-3">
+                <span class="faq-q">Apakah bisa custom desain produk?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-body" id="faq-3" role="region">
+                <div class="faq-body-inner">
+                  Tentu! Kami membuka layanan custom untuk kaos, tote bag, dan produk kreatif lainnya. Diskusikan ide
+                  desainmu dengan kami melalui WhatsApp dan kami akan membantu mewujudkannya.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item reveal-up">
+              <button class="faq-trigger" aria-expanded="false" aria-controls="faq-4">
+                <span class="faq-q">Apakah bisa konsultasi sebelum membeli?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-body" id="faq-4" role="region">
+                <div class="faq-body-inner">
+                  Pastinya! Kami sangat terbuka untuk konsultasi. Apakah kamu masih bingung memilih jenis kanvas, cat
+                  yang tepat, atau ingin tahu pilihan ukuran yang tersedia — chat kami dulu sebelum membeli.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item reveal-up">
+              <button class="faq-trigger" aria-expanded="false" aria-controls="faq-5">
+                <span class="faq-q">Di mana lokasi Kanvaz Galeri?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-body" id="faq-5" role="region">
+                <div class="faq-body-inner">
+                  Kami berlokasi di Jl. Utama Kompleks Vila Mas 1 Blok C3 No. 9, Kelurahan Sri Meranti, Umban Sari,
+                  Pekanbaru, Riau 28261. Buka Senin–Sabtu pukul 09.00–20.00 WIB.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item reveal-up">
+              <button class="faq-trigger" aria-expanded="false" aria-controls="faq-6">
+                <span class="faq-q">Produk apa saja yang tersedia?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-body" id="faq-6" role="region">
+                <div class="faq-body-inner">
+                  Kami menyediakan: kanvas berbagai ukuran, cat lukis (akrilik, air, minyak), kuas, palet, tote bag,
+                  payung lukis, sandal lukis, kaos distro lokal, dan berbagai media seni lainnya. Chat kami untuk info
+                  produk lengkap terbaru.
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         BIG CTA SECTION
+         ============================================================ -->
+    <section class="cta-section py-section" aria-labelledby="cta-heading">
+      <div class="cta-bg-text" aria-hidden="true">KANVAZ</div>
+      <div class="container" style="position: relative; z-index: 1; text-align: center;">
+
+        <div class="flex flex-col items-center gap-6">
+          <span class="section-label reveal-fade" style="justify-content: center; color: rgba(255,255,255,0.4);">Mulai
+            Sekarang</span>
+
+          <h2 id="cta-heading" class="cta-heading reveal-up">
+            Let's make
+            <span class="red-line">something.</span>
+          </h2>
+
+          <p class="reveal-up"
+            style="font-size: 1rem; color: rgba(255,255,255,0.5); max-width: 44ch; line-height: 1.75; margin-inline: auto;">
+            Mulai dari ide sederhana, lalu biarkan Kanvaz Galeri membantu mewujudkannya menjadi karya yang nyata.
+          </p>
+
+          <div class="flex flex-wrap justify-center gap-3 mt-2 reveal-up">
+            <a href="https://wa.me/6281378676055?text=Halo%20Kanvaz%20Galeri!%20Saya%20ingin%20chat%20dan%20tahu%20lebih%20lanjut."
+              target="_blank" rel="noopener noreferrer" class="btn-primary magnetic-wrapper"
+              style="font-size: 1rem; padding: 0.8rem 2rem;" data-cursor="OPEN" aria-label="Chat via WhatsApp">
+              <span class="magnetic-inner flex items-center gap-2">
+                <iconify-icon icon="ph:whatsapp-logo-bold" style="font-size: 1.1rem;"></iconify-icon>
+                Chat via WhatsApp
+              </span>
+            </a>
+            <a href="https://www.instagram.com/kanvaz_galeri/" target="_blank" rel="noopener noreferrer"
+              class="btn-ghost" aria-label="Follow Instagram Kanvaz Galeri">
+              <iconify-icon icon="ph:instagram-logo-bold" style="font-size: 1rem;"></iconify-icon>
+              Follow Instagram
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT SECTION
+         ============================================================ -->
+    <section id="kontak" class="py-section" aria-labelledby="contact-heading">
+      <div class="container">
+
+        <div class="flex flex-col items-start mb-10">
+          <span class="section-label reveal-fade">Kontak</span>
+          <h2 id="contact-heading" class="section-heading mt-4 reveal-up">
+            Temukan Kami<br>di <span class="text-red">Pekanbaru.</span>
+          </h2>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
+
+          <!-- Contact Info -->
+          <div class="reveal-left flex flex-col gap-0">
+
+            <div class="contact-item">
+              <div class="contact-icon-wrap" aria-hidden="true">
+                <iconify-icon icon="ph:map-pin-bold"></iconify-icon>
+              </div>
+              <div>
+                <p class="contact-lbl">Alamat</p>
+                <p class="contact-val">
+                  Jl. Utama Kompleks Vila Mas 1 Blok C3 No. 9,<br>
+                  Kel. Sri Meranti, Umban Sari,<br>
+                  Pekanbaru, Riau 28261
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon-wrap" aria-hidden="true">
+                <iconify-icon icon="ph:clock-bold"></iconify-icon>
+              </div>
+              <div>
+                <p class="contact-lbl">Jam Operasional</p>
+                <p class="contact-val">
+                  Senin–Sabtu: 09.00–20.00 WIB<br>
+                  <span style="color: var(--text-secondary); font-size: 0.825rem;">Minggu: Tutup</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon-wrap" aria-hidden="true">
+                <iconify-icon icon="ph:whatsapp-logo-bold"></iconify-icon>
+              </div>
+              <div>
+                <p class="contact-lbl">WhatsApp</p>
+                <a href="https://wa.me/6281378676055" target="_blank" rel="noopener noreferrer" class="contact-val"
+                  style="color: var(--primary); text-decoration: none; font-weight: 600;"
+                  aria-label="Buka WhatsApp Kanvaz Galeri">
+                  0813-7867-6055
+                </a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon-wrap" aria-hidden="true">
+                <iconify-icon icon="ph:instagram-logo-bold"></iconify-icon>
+              </div>
+              <div>
+                <p class="contact-lbl">Instagram</p>
+                <a href="https://www.instagram.com/kanvaz_galeri/" target="_blank" rel="noopener noreferrer"
+                  class="contact-val" style="color: var(--primary); text-decoration: none; font-weight: 600;"
+                  aria-label="Buka Instagram Kanvaz Galeri">
+                  @kanvaz_galeri
+                </a>
+              </div>
+            </div>
+
+            <div class="contact-item" style="border-bottom: none;">
+              <div class="contact-icon-wrap" aria-hidden="true">
+                <iconify-icon icon="ph:facebook-logo-bold"></iconify-icon>
+              </div>
+              <div>
+                <p class="contact-lbl">Facebook</p>
+                <a href="https://www.facebook.com/kanvaz.galeripku/" target="_blank" rel="noopener noreferrer"
+                  class="contact-val" style="color: var(--primary); text-decoration: none; font-weight: 600;"
+                  aria-label="Buka Facebook Kanvaz Galeri">
+                  Kanvaz Galeri
+                </a>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-3 mt-6">
+              <a href="https://wa.me/6281378676055" target="_blank" rel="noopener noreferrer" class="btn-primary"
+                aria-label="Buka WhatsApp Kanvaz Galeri">
+                <iconify-icon icon="ph:whatsapp-logo-bold" style="font-size: 1rem;"></iconify-icon>
+                Open WhatsApp
+              </a>
+              <a href="https://www.instagram.com/kanvaz_galeri/" target="_blank" rel="noopener noreferrer"
+                class="btn-secondary" aria-label="Buka Instagram Kanvaz Galeri">
+                <iconify-icon icon="ph:instagram-logo-bold" style="font-size: 1rem;"></iconify-icon>
+                View Instagram
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Map -->
+          <div class="reveal-right">
+            <div class="map-placeholder" style="aspect-ratio: 4/3;">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.716063703758!2d101.44!3d0.51!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMMKwMzAnMzYuMCJOIDEwMcKwMjYnMjQuMCJF!5e0!3m2!1sid!2sid!4v1234567890"
+                width="100%" height="100%" style="border:0; filter: grayscale(0.3) saturate(1.1);" allowfullscreen
+                loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Lokasi Kanvaz Galeri di Pekanbaru"
+                aria-label="Peta lokasi Kanvaz Galeri di Pekanbaru, Riau"></iframe>
+            </div>
+            <p
+              style="font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-secondary); margin-top: 0.75rem; text-align: center;">
+              Jl. Utama Kompleks Vila Mas 1 Blok C3 No. 9, Pekanbaru, Riau
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer role="contentinfo">
+    <div class="container">
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-0">
+
+        <!-- Brand -->
+        <div class="lg:col-span-2">
+          <div class="footer-logo logo-brand">
+          <img src="assets/icons/logokanvaz.svg" alt="Kanvaz Galeri Logo" class="logo-brand-image">
+          <span class="logo-brand-text">KANVAZ GALERI</span>
+        </div>
+        <p class="footer-tagline">Creative supplies for every idea.</p>
+          <p
+            style="font-size: 0.825rem; color: rgba(255,255,255,0.3); margin-top: 1rem; line-height: 1.65; max-width: 36ch;">
+            Media seni, perlengkapan kreativitas, produk custom, dan kebutuhan pembelajaran seni di Pekanbaru, Riau.
+          </p>
+          <div class="flex gap-3 mt-4">
+            <a href="https://wa.me/6281378676055" target="_blank" rel="noopener noreferrer" class="footer-social-link"
+              aria-label="WhatsApp Kanvaz Galeri">
+              <iconify-icon icon="ph:whatsapp-logo-bold"></iconify-icon>
+            </a>
+            <a href="https://www.instagram.com/kanvaz_galeri/" target="_blank" rel="noopener noreferrer"
+              class="footer-social-link" aria-label="Instagram Kanvaz Galeri">
+              <iconify-icon icon="ph:instagram-logo-bold"></iconify-icon>
+            </a>
+            <a href="https://www.facebook.com/kanvaz.galeripku/" target="_blank" rel="noopener noreferrer"
+              class="footer-social-link" aria-label="Facebook Kanvaz Galeri">
+              <iconify-icon icon="ph:facebook-logo-bold"></iconify-icon>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div>
+          <p
+            style="font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 1rem;">
+            Navigasi</p>
+          <nav aria-label="Footer navigation">
+            <a href="#produk" class="footer-link">Produk</a>
+            <a href="#tentang" class="footer-link">Tentang</a>
+            <a href="#galeri" class="footer-link">Galeri</a>
+            <a href="#faq" class="footer-link">FAQ</a>
+            <a href="#kontak" class="footer-link">Kontak</a>
+          </nav>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <p
+            style="font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 1rem;">
+            Kontak</p>
+          <div class="flex flex-col gap-2">
+            <a href="https://wa.me/6281378676055" class="footer-link" aria-label="WhatsApp">0813-7867-6055</a>
+            <a href="https://www.instagram.com/kanvaz_galeri/" target="_blank" rel="noopener noreferrer"
+              class="footer-link" aria-label="Instagram">@kanvaz_galeri</a>
+            <p class="footer-link" style="cursor: default;">Pekanbaru, Riau</p>
+            <p class="footer-link" style="cursor: default;">Senin–Sabtu, 09.00–20.00</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p style="font-size: 0.75rem; color: rgba(255,255,255,0.2);">
+          &copy; 2024 Kanvaz Galeri. All rights reserved.
+        </p>
+        <p
+          style="font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.15);">
+          Pekanbaru, Riau, Indonesia
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       LIGHTBOX
+       ============================================================ -->
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Tampilan gambar penuh">
+    <button id="lightbox-close" aria-label="Tutup lightbox">
+      <iconify-icon icon="ph:x-bold"></iconify-icon>
+    </button>
+    <img id="lightbox-img" src="" alt="Kanvaz Galeri" />
+    <div id="lightbox-caption"></div>
+  </div>
+
+  <!-- Main JS -->
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>
