@@ -39,7 +39,7 @@ const IMAGES = {
   school: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=700&q=80',
 
   // Custom / Apparel
-  custom1: 'https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=600&q=80',
+  custom1: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80',
   custom2: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80',
 
   // Gallery

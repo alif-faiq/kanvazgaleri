@@ -1,10 +1,55 @@
-# Kanvaz Galeri — Premium Landing Page
+# Kanvaz Galeri — Premium Creative Landing Page
 
-Landing page one-page untuk **Kanvaz Galeri**, toko perlengkapan seni dan produk kreatif di Pekanbaru, Riau.
+> A modern, photography-led landing page concept for **Kanvaz Galeri**, a creative art-supply and product business based in Pekanbaru, Riau.
 
-Desain terinspirasi oleh kualitas visual dan motion dari website referensi seperti *Framewise*, tetapi identitas brand Kanvaz Galeri dibuat sendiri dengan warna utama merah `#DC2626`, nuansa editorial, photography-led layout, dan CTA yang mengarah ke WhatsApp.
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)](#)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?logo=tailwindcss&logoColor=white)](#)
+[![GSAP](https://img.shields.io/badge/GSAP-88CE02?logo=greensock&logoColor=111111)](#)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B-F7DF1E?logo=javascript&logoColor=111111)](#)
 
-## Struktur Project
+## About
+
+Kanvaz Galeri is a landing page built to present a creative local business through a clean, expressive, and interaction-focused web experience.
+
+The visual direction takes inspiration from premium editorial websites and modern motion design, while maintaining an independent visual identity for Kanvaz Galeri. The interface combines a light, minimal foundation with a red accent palette centered around `#DC2626`.
+
+The page is designed around visual storytelling and direct conversion through WhatsApp.
+
+## Highlights
+
+- Responsive one-page landing page
+- Editorial-style hero section
+- GSAP-powered reveal and scroll animations
+- Infinite marquee
+- Bento-style product and category presentation
+- Image parallax and hover interactions
+- Magnetic CTA buttons
+- Desktop custom cursor
+- Mobile navigation
+- Product showcase
+- Creative storytelling sections
+- School / education section
+- Custom product section
+- Interactive gallery with lightbox
+- FAQ accordion
+- Scroll progress indicator
+- Reduced-motion support
+- Local SVG branding assets
+
+## Tech Stack
+
+| Technology | Purpose |
+| --- | --- |
+| HTML5 | Semantic page structure |
+| Tailwind CSS (CDN) | Utility styling and responsive layout |
+| CSS3 | Custom visual styling and component behavior |
+| Vanilla JavaScript | UI logic and interaction |
+| GSAP 3.12.5 | Motion and animation |
+| GSAP ScrollTrigger | Scroll-based animation |
+| Iconify | Interface icons |
+| Google Fonts | Manrope & DM Mono |
+
+## Project Structure
 
 ```text
 kanvazgaleri2/
@@ -15,292 +60,125 @@ kanvazgaleri2/
 ├── js/
 │   └── main.js
 └── assets/
-    ├── images/
-    └── icons/
+    ├── icons/
+    │   ├── logokanvaz.svg
+    │   └── favicon-kanvaz.svg
+    └── images/
 ```
 
-## Cara Menjalankan
+## Getting Started
 
-Project ini tidak membutuhkan build step atau Node.js karena Tailwind CSS, GSAP, ScrollTrigger, dan Iconify dimuat melalui CDN.
+This project does not require Node.js or a build process. External libraries are loaded through CDN.
 
-### Opsi 1 — VS Code Live Server
+### Using VS Code + Live Server
 
-1. Buka folder project `kanvazgaleri2` di VS Code.
-2. Install extension **Live Server**.
-3. Klik kanan `index.html` → **Open with Live Server**.
-4. Browser akan membuka alamat seperti `http://127.0.0.1:5500/`.
+1. Open the project folder in Visual Studio Code.
+2. Install the **Live Server** extension.
+3. Open `index.html`.
+4. Right-click the file and choose **Open with Live Server**.
 
-### Opsi 2 — Python HTTP Server
+### Using Python
 
-Buka terminal di folder project:
+From the project directory:
 
 ```bash
-cd C:\Users\DELL\Downloads\kanvazgaleri2
 python -m http.server 8000
 ```
 
-Kemudian buka:
+Then open:
 
 ```text
 http://127.0.0.1:8000
 ```
 
-Menggunakan local server lebih disarankan daripada membuka `index.html` langsung dengan `file://`, terutama karena project menggunakan banyak asset remote dan JavaScript interaktif.
+Using a local HTTP server is recommended for a more reliable development environment than opening the HTML file directly with `file://`.
 
-## Library yang Digunakan
+## Branding & Assets
 
-- **HTML5** — struktur halaman.
-- **Tailwind CSS CDN** — utility styling dan responsive layout.
-- **GSAP 3.12.5** — animasi dan motion.
-- **GSAP ScrollTrigger** — scroll reveal, parallax, dan scroll-based interaction.
-- **Vanilla JavaScript** — logic interaksi tanpa framework.
-- **Iconify** — icon UI.
-- **Google Fonts** — Manrope dan DM Mono.
+The project uses the Kanvaz Galeri SVG logo for the main brand presentation.
 
-## Fitur Utama
+Main branding asset:
 
-Landing page saat ini mencakup:
+```text
+assets/icons/logokanvaz.svg
+```
 
-- Preloader dengan progress animation.
-- Custom cursor desktop.
-- Scroll progress bar.
-- Sticky / compact navbar.
-- Mobile navigation.
-- Hero word reveal animation.
-- Infinite marquee.
-- Bento category layout.
-- Product cards dengan hover / tilt interaction.
-- Image parallax.
-- Magnetic CTA button.
-- Storytelling section.
-- School / education section.
-- Custom product section.
-- Dynamic product cards.
-- Dynamic image gallery.
-- Gallery lightbox.
-- FAQ accordion.
-- Final WhatsApp CTA.
-- Contact information dan social links.
-- Reduced-motion handling.
-- Image fallback ketika asset gagal dimuat.
+The browser favicon uses a separate icon-only asset:
 
-## Cara Mengganti Foto Placeholder
+```text
+assets/icons/favicon-kanvaz.svg
+```
 
-Semua URL foto utama dikumpulkan di bagian atas `js/main.js` pada object:
+For the final visual result, replace temporary photography with original Kanvaz Galeri photos while keeping the existing layout and image configuration.
+
+## Image Configuration
+
+Temporary image sources are centralized in the `IMAGES` configuration object near the top of:
+
+```text
+js/main.js
+```
+
+Example:
 
 ```javascript
 const IMAGES = {
-    // ...
+  heroMain: 'assets/images/hero-main.webp',
+  heroFloat: 'assets/images/hero-float.webp',
+  prodCanvas: 'assets/images/product-canvas.webp',
+  prodPaint: 'assets/images/product-paint.webp'
 };
 ```
 
-Contoh:
+This makes it possible to replace the visual assets without changing the animation and interaction logic.
 
-```javascript
-const IMAGES = {
-    heroMain: 'assets/images/hero-main.jpg',
-    heroFloat: 'assets/images/hero-float.jpg',
+Recommended image formats:
 
-    bentoCanvas: 'assets/images/bento-canvas.jpg',
-    bentoPaint: 'assets/images/bento-paint.jpg',
-    bentoSchool: 'assets/images/bento-school.jpg',
-    bentoTote: 'assets/images/bento-tote.jpg',
-    bentoApparel: 'assets/images/bento-apparel.jpg',
+- WebP for regular web photography
+- SVG for vector branding
+- PNG when transparency is required
 
-    prodCanvas: 'assets/images/product-canvas.jpg',
-    prodPaint: 'assets/images/product-paint.jpg',
-    // dst.
-};
-```
+## Design Direction
 
-### Pola file yang disarankan
+The interface follows a minimal editorial approach:
 
-Simpan aset asli di:
+- White and neutral surfaces
+- Red accent color
+- Strong typography hierarchy
+- Large photography
+- Generous whitespace
+- Layered visual composition
+- Subtle motion instead of excessive effects
 
-```text
-assets/images/
-```
+The goal is to make the website feel like a **premium creative brand experience**, rather than a conventional marketplace layout.
 
-Gunakan nama yang konsisten, misalnya:
+## Responsive Experience
 
-```text
-hero-main.webp
-hero-float.webp
-bento-canvas.webp
-bento-paint.webp
-product-canvas.webp
-product-paint.webp
-product-tote.webp
-product-umbrella.webp
-product-sandal.webp
-product-kaos.webp
-about.webp
-school.webp
-custom-kaos.webp
-custom-tote.webp
-gallery-01.webp
-gallery-02.webp
-...
-```
+The layout is designed for:
 
-Lalu ubah value di object `IMAGES` tanpa perlu mengubah logic animasi di `main.js`.
+- Mobile
+- Tablet
+- Desktop
+- Large desktop
 
-### Gallery
+Mouse-dependent interactions such as the custom cursor, magnetic buttons, and tilt effects are treated as desktop enhancements, while the core navigation and content remain accessible on touch devices.
 
-Gallery menggunakan array:
+## Brand Contact
 
-```javascript
-gallery: [
-    'assets/images/gallery-01.webp',
-    'assets/images/gallery-02.webp',
-    'assets/images/gallery-03.webp',
-    // ...
-],
-```
+**Kanvaz Galeri**  
+Pekanbaru, Riau, Indonesia
 
-Caption-nya dikelola oleh array `galleryCaptions` dengan urutan yang sama. Jadi jumlah gambar dan caption harus tetap sinkron.
+Instagram: [@kanvaz_galeri](https://www.instagram.com/kanvaz_galeri/)  
+Facebook: [Kanvaz Galeri](https://www.facebook.com/kanvaz.galeripku/)
 
-## Hal yang Perlu Disiapkan untuk Finalisasi
+## Status
 
-### 1. Logo asli
+This repository contains the current landing page implementation and its supporting front-end assets.
 
-Siapkan minimal:
+Some photography may still use temporary web imagery during development and can be replaced with original brand photography before production deployment.
 
-- Logo utama Kanvaz Galeri.
-- Format **SVG** jika tersedia.
-- PNG transparan resolusi tinggi sebagai fallback.
-- Versi logo untuk background terang.
-- Versi logo untuk background gelap bila ada.
-- Favicon / icon mark bila tersedia.
+---
 
-Idealnya kirim file logo vector asli agar tidak perlu menggunakan text logo `KANVAZ.` sebagai versi final.
+### License
 
-### 2. Foto Hero
-
-Prioritas tertinggi adalah foto hero karena menjadi visual pertama yang dilihat pengunjung.
-
-Siapkan 1–2 foto dengan komposisi vertical/portrait yang menunjukkan:
-
-- perlengkapan seni,
-- kanvas,
-- kuas/cat,
-- proses melukis,
-- atau suasana Kanvaz Galeri.
-
-Rekomendasi sumber: foto asli toko/produk, bukan stock image.
-
-### 3. Foto Produk
-
-Idealnya siapkan foto asli untuk minimal:
-
-- Kanvas Lukis.
-- Cat Lukis.
-- Tote Bag.
-- Payung Lukis.
-- Sandal Lukis.
-- Kaos Custom.
-
-Gunakan background yang relatif konsisten supaya product cards terlihat premium.
-
-### 4. Foto Aktivitas / Story
-
-Siapkan foto proses seperti:
-
-- tangan sedang melukis,
-- kuas dan cat,
-- proses pengerjaan,
-- produk setengah jadi,
-- produk selesai,
-- aktivitas kelas/workshop bila memang ada.
-
-Foto-foto ini akan membuat storytelling section jauh lebih kuat.
-
-### 5. Foto Kebutuhan Sekolah
-
-Siapkan foto asli yang menunjukkan konteks:
-
-- media pembelajaran,
-- perlengkapan seni sekolah,
-- aktivitas siswa/guru,
-- atau paket kebutuhan sekolah.
-
-Jangan menggunakan foto yang menyiratkan kegiatan sekolah Kanvaz Galeri apabila foto tersebut sebenarnya bukan dokumentasi mereka.
-
-### 6. Foto Custom Product
-
-Siapkan foto:
-
-- kaos custom,
-- tote bag custom,
-- desain sebelum dicetak,
-- hasil akhir produk.
-
-### 7. Gallery
-
-Target aman untuk finalisasi adalah sekitar **8–12 foto asli** dengan variasi orientation dan konteks.
-
-### 8. Lokasi / Google Maps
-
-Embed Google Maps pada `index.html` saat ini menggunakan URL embed yang perlu dicek kembali sebelum production. Sebelum go-live, ganti dengan embed Google Maps resmi untuk lokasi Kanvaz Galeri yang benar.
-
-## Hasil Audit Teknis
-
-Audit dilakukan pada file yang diberikan untuk proyek ini (`index.html`, `css/style.css`, dan `js/main.js`) dan salinan project lokal.
-
-Pemeriksaan yang berhasil dilakukan:
-
-- Sintaks `main.js`: **OK** menggunakan `node --check`.
-- `index.html`: berhasil diparse oleh parser HTML di environment audit.
-- Local Python HTTP server: **OK**; `index.html`, `css/style.css`, dan `js/main.js` seluruhnya merespons HTTP 200.
-- Anchor navigation di HTML: tidak ditemukan target anchor yang hilang.
-- Pemeriksaan referensi ID JavaScript menemukan dua referensi yang tidak memiliki elemen HTML (`mobile-menu-close` dan `story-scroll`). Keduanya tidak merusak halaman, tetapi referensi `mobile-menu-close` dibersihkan pada versi review ini; logic sticky story yang tidak digunakan tetap dipertahankan agar struktur kode tidak berubah terlalu agresif.
-
-Perbaikan yang dilakukan pada versi review:
-
-1. Menghapus referensi `mobile-menu-close` yang tidak digunakan.
-2. Menghapus handler keyboard FAQ yang berpotensi melakukan toggle dua kali karena `.faq-trigger` sudah berupa elemen `<button>` native.
-3. Menambahkan dukungan tombol **Space** pada gallery item yang menggunakan `role="button"`.
-4. Menambahkan guard `ScrollTrigger` pada fitur yang memang membutuhkan plugin tersebut agar fallback ketika CDN gagal tidak menghasilkan `ReferenceError`.
-5. Memperbaiki konflik `transform` antara hover product card dan tilt animation.
-6. Menambahkan refresh `ScrollTrigger` setelah asset/image selesai dimuat.
-7. Menambahkan penyesuaian posisi floating hero element pada ukuran tablet agar risiko elemen keluar viewport lebih kecil.
-8. Mengubah copyright dari 2024 menjadi 2026.
-
-### Keterbatasan Audit Browser
-
-Local server berhasil dijalankan dan asset lokal merespons dengan benar. Namun, browser automation di environment audit diblokir oleh kebijakan runtime (`ERR_BLOCKED_BY_ADMINISTRATOR`), sehingga **console browser, visual overflow, dan pixel-level responsive check tidak dapat diverifikasi secara langsung di browser pada environment ini**.
-
-Karena itu, final visual QA tetap harus dilakukan di browser lokal Windows Anda pada ukuran minimal:
-
-```text
-320 × 844
-375 × 844
-390 × 844
-768 × 900
-1024 × 900
-1280 × 900
-1440 × 900
-```
-
-Perhatikan khususnya:
-
-- floating badge hero,
-- mobile menu,
-- bento grid,
-- product card tilt,
-- FAQ animation,
-- lightbox,
-- horizontal overflow,
-- dan loading image setelah scroll.
-
-## Sebelum Production
-
-Jangan publish sebelum:
-
-- foto stock diganti foto asli,
-- logo text diganti logo asli,
-- Google Maps embed diverifikasi,
-- semua link social media diverifikasi,
-- copywriting final disetujui pemilik usaha,
-- ukuran dan kompresi gambar dioptimalkan,
-- dan website diuji di mobile Android/iPhone.
+This project is developed for the Kanvaz Galeri website concept and implementation.
