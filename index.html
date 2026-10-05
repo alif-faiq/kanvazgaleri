@@ -106,7 +106,6 @@
       <nav class="flex items-center justify-between" aria-label="Navigasi utama">
 
         <!-- Logo -->
-
         <a href="#" class="nav-logo logo-brand" aria-label="Kanvaz Galeri — Beranda">
           <img src="assets/icons/logokanvaz.svg" alt="Kanvaz Galeri Logo" class="logo-brand-image rounded-lg">
           <span class="logo-brand-text">KANVAZ GALERI</span>
@@ -180,7 +179,7 @@
          ============================================================ -->
     <section id="hero" aria-labelledby="hero-heading">
       <div class="container">
-        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-screen py-24">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-screen py-12">
 
           <!-- Hero Text -->
           <div class="flex flex-col gap-6 lg:gap-7">
@@ -237,10 +236,10 @@
 
           <!-- Hero Visual -->
           <div class="hero-visual relative">
-            <div class="parallax-img-wrapper" style="aspect-ratio: 3/4; max-height: 75vh;">
+            <div class="parallax-img-wrapper">
               <img id="hero-img-main" src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&q=80"
-                alt="Aktivitas melukis — foto sementara" class="parallax-img img-cover" style="border-radius: 1.25rem;"
-                fetchpriority="high" decoding="async" data-cursor="VIEW" />
+                alt="Aktivitas melukis" class="parallax-img img-cover" fetchpriority="high" decoding="async"
+                data-cursor="VIEW" />
             </div>
 
             <!-- Floating badge 1 -->
@@ -257,8 +256,8 @@
 
             <!-- Floating small image -->
             <div class="hero-float-img" aria-hidden="true">
-              <img id="hero-img-float" src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=400&q=75"
-                alt="Foto sementara — produk kreatif" loading="lazy" decoding="async" />
+              <img id="hero-img-float" src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=500&q=80" alt="logo kanvaz galeri" loading="lazy"
+                decoding="async" data-cursor="Kanvaz Galeri" />
             </div>
           </div>
 
@@ -482,8 +481,7 @@
           <div class="parallax-img-wrapper reveal-left" style="aspect-ratio: 3/4; max-height: 65vh; order: 2;"
             aria-hidden="true">
             <img id="about-img" src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=700&q=80"
-              alt="Aktivitas seni di Kanvaz Galeri — foto sementara" class="parallax-img img-cover" loading="lazy"
-              decoding="async" />
+              alt="Aktivitas seni di Kanvaz Galeri" class="parallax-img img-cover" loading="lazy" decoding="async" />
           </div>
 
           <!-- Text -->
@@ -547,115 +545,6 @@
     </section>
 
     <!-- ============================================================
-         CREATIVE STORY SECTION
-         ============================================================ -->
-    <section class="py-section" aria-labelledby="story-heading">
-      <div class="container">
-
-        <div class="text-center mb-16">
-          <span class="section-label reveal-fade" style="justify-content: center;">Proses Berkarya</span>
-          <h2 id="story-heading" class="section-heading mt-4 reveal-up">
-            From blank canvas to<br><span class="text-red">something personal</span>
-          </h2>
-          <p class="section-sub mt-4 reveal-up" style="margin-inline: auto; text-align:center;">
-            Setiap karya dimulai dari kanvas kosong dan satu langkah kecil
-          </p>
-        </div>
-
-        <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 stagger-group">
-
-          <!-- Story Step 1 -->
-          <div class="story-step stagger-item" style="grid-column: span 2;">
-            <div
-              style="border-radius: 1.25rem; overflow: hidden; aspect-ratio: 3/2; position: relative; background: var(--bg-secondary);">
-              <img id="story-img-1" src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=700&q=80"
-                alt="Kanvas kosong — foto sementara" class="img-cover" loading="lazy" decoding="async" />
-              <div
-                style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 55%);">
-              </div>
-              <div style="position: absolute; bottom: 1.25rem; left: 1.25rem;">
-                <p class="bento-cat">01</p>
-                <p class="bento-title">Kanvas Kosong</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Story Step 2 -->
-          <div class="story-step stagger-item">
-            <div
-              style="border-radius: 1.25rem; overflow: hidden; aspect-ratio: 3/4; position: relative; background: var(--bg-secondary);">
-              <img id="story-img-2" src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600&q=80"
-                alt="Alat seni — foto sementara" class="img-cover" loading="lazy" decoding="async" />
-              <div
-                style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 55%);">
-              </div>
-              <div style="position: absolute; bottom: 1.25rem; left: 1.25rem;">
-                <p class="bento-cat">02</p>
-                <p class="bento-title">Tools</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Story Step 3 -->
-          <div class="story-step stagger-item">
-            <div
-              style="border-radius: 1.25rem; overflow: hidden; aspect-ratio: 3/4; position: relative; background: var(--bg-secondary);">
-              <img id="story-img-3" src="https://images.unsplash.com/photo-1576672843344-f01907a9d40c?w=600&q=80"
-                alt="Warna cat — foto sementara" class="img-cover" loading="lazy" decoding="async" />
-              <div
-                style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 55%);">
-              </div>
-              <div style="position: absolute; bottom: 1.25rem; left: 1.25rem;">
-                <p class="bento-cat">03</p>
-                <p class="bento-title">Color</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Story Step 4 -->
-          <div class="story-step stagger-item" style="grid-column: span 2;">
-            <div
-              style="border-radius: 1.25rem; overflow: hidden; aspect-ratio: 3/2; position: relative; background: var(--bg-secondary);">
-              <img id="story-img-4" src="https://images.unsplash.com/photo-1576672843344-f01907a9d40c?w=600&q=80"
-                alt="Proses melukis — foto sementara" class="img-cover" loading="lazy" decoding="async" />
-              <div
-                style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 55%);">
-              </div>
-              <div style="position: absolute; bottom: 1.25rem; left: 1.25rem;">
-                <p class="bento-cat">04</p>
-                <p class="bento-title">Process</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Story Step 5 -->
-          <div class="story-step stagger-item" style="grid-column: span 3;">
-            <div
-              style="border-radius: 1.25rem; overflow: hidden; aspect-ratio: 16/9; position: relative; background: var(--bg-secondary);">
-              <img id="story-img-5" src="https://images.unsplash.com/photo-1578926288207-a90a5366759d?w=900&q=80"
-                alt="Karya final — foto sementara" class="img-cover" loading="lazy" decoding="async" />
-              <div
-                style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 55%);">
-              </div>
-              <div style="position: absolute; bottom: 1.5rem; left: 1.5rem;">
-                <p class="bento-cat">05</p>
-                <p class="bento-title" style="font-size: 1.35rem;">Final Work</p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="text-center mt-10 reveal-up">
-          <p class="section-sub" style="margin-inline: auto; text-align: center; font-style: italic;">
-            "Setiap karya dimulai dari satu langkah — dan Kanvaz Galeri ada untuk menemanimu di setiap tahapnya"
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ============================================================
          SCHOOL / EDUCATION SECTION
          ============================================================ -->
     <section class="py-section" style="background: var(--bg-secondary);" aria-labelledby="school-heading">
@@ -667,7 +556,8 @@
             <!-- Image -->
             <div class="parallax-img-wrapper reveal-left" style="aspect-ratio: 4/3; max-height: 55vh;">
               <img id="school-img" src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=700&q=80"
-                alt="Kegiatan seni di sekolah — foto sementara" class="parallax-img img-cover" loading="lazy"
+                alt="Kegiatan seni di sekolah" class="parallax-img img-cover"
+                style="width: 100%; height: 100%; object-fit: cover; border-radius: 1.25rem;" loading="lazy"
                 decoding="async" />
             </div>
 
@@ -805,9 +695,10 @@
 
           <!-- Image Collage -->
           <div class="reveal-right grid grid-cols-2 gap-3">
-            <div style="border-radius: 1.25rem; overflow: hidden; aspect-ratio: 1/1;">
+            <div style="aspect-ratio: 3/4; width: 100%;">
               <img id="custom-img-1" src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80"
-                alt="Custom kaos" class="img-cover" loading="lazy" decoding="async" />
+                alt="Custom kaos" style="width: 100%; height: 100%; object-fit: cover; border-radius: 1.25rem;"
+                loading="lazy" decoding="async" />
             </div>
             <div class="flex flex-col gap-3">
               <div style="border-radius: 1.25rem; overflow: hidden; aspect-ratio: 1/1; flex:1;">
@@ -1190,9 +1081,10 @@
         <!-- Brand -->
         <div class="lg:col-span-2">
           <div class="footer-logo logo-brand">
-            <img src="assets/icons/logokanvaz.svg" alt="Kanvaz Galeri Logo" class="logo-brand-image">
+            <img src="assets/icons/logokanvaz.svg" alt="Kanvaz Galeri Logo" class="logo-brand-image rounded-lg">
             <span class="logo-brand-text">KANVAZ GALERI</span>
           </div>
+
           <p class="footer-tagline">Creative supplies for every idea.</p>
           <p
             style="font-size: 0.825rem; color: rgba(255,255,255,0.3); margin-top: 1rem; line-height: 1.65; max-width: 36ch;">
