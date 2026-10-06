@@ -11,11 +11,11 @@ const IMAGES = {
   heroFloat: 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=500&q=80',
 
   // Bento / Category
-  bentoCanvas: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=900&q=80',
-  bentoPaint: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600&q=80',
+  bentoCanvas: 'assets/images/kanvas-5.jpg',
+  bentoPaint: 'assets/images/alatlukis-1.jpeg',
   bentoSchool: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&q=80',
-  bentoTote: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80',
-  bentoApparel: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80',
+  bentoTote: 'assets/images/totebag-3.jpeg',
+  bentoApparel: 'assets/images/kaos-1.jpeg',
 
   // Products
   prodCanvas: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&q=80',
@@ -44,15 +44,21 @@ const IMAGES = {
 
   // Gallery
   gallery: [
+    'assets/images/kipas-5.jpeg',
     'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=500&q=75',
-    'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=500&q=75',
-    'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&q=75',
+    'assets/images/kanvas-3.jpeg',
+    'assets/images/lukisan-4.jpeg',
+    'assets/images/payung-7.jpeg',
+    'assets/images/payung-1.jpeg',
+    'assets/images/payung-10.jpeg',
     'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=500&q=75',
-    'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&q=75',
     'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&q=75',
-    'https://images.unsplash.com/photo-1515405295579-ba7b45403062?w=500&q=75',
-    'https://images.unsplash.com/photo-1576672843344-f01907a9d40c?w=500&q=75',
-    'https://images.unsplash.com/photo-1578926288207-a90a5366759d?w=500&q=75',
+    'assets/images/kipas-4.jpeg',
+    'assets/images/topeng-2.jpeg',
+    'assets/images/payung-6.jpeg',
+    'assets/images/totebag-2.jpeg',
+    'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=500&q=75',
+    'assets/images/kaos-1.jpeg',
   ],
 
   // Gallery captions (parallel array)
