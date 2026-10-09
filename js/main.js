@@ -18,12 +18,12 @@ const IMAGES = {
   bentoApparel: 'assets/images/kaos-1.jpeg',
 
   // Products
-  prodCanvas: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&q=80',
-  prodPaint: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&q=80',
-  prodTote: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80',
-  prodUmbrella: 'https://images.unsplash.com/photo-1520038410233-7141be7e6f97?w=600&q=80',
-  prodSandal: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&q=80',
-  prodKaos: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80',
+  prodCanvas: 'assets/images/kanvas-5.jpg',
+  prodPaint: 'assets/images/alatlukis-1.jpeg',
+  prodTote: 'assets/images/totebag-3.jpeg',
+  prodUmbrella: 'assets/images/payung-1.jpeg',
+  prodSandal: 'assets/images/sendal-1.jpeg',
+  prodKaos: 'assets/images/kaos-1.jpeg',
 
   // About
   about1: 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=700&q=80',
