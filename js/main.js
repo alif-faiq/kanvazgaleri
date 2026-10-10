@@ -20,13 +20,13 @@ const IMAGES = {
   // Products
   prodCanvas: 'assets/images/kanvas-5.jpg',
   prodPaint: 'assets/images/alatlukis-1.jpeg',
-  prodTote: 'assets/images/totebag-3.jpeg',
-  prodUmbrella: 'assets/images/payung-1.jpeg',
-  prodSandal: 'assets/images/sendal-1.jpeg',
+  prodTote: 'assets/images/totebag-5.jpg',
+  prodUmbrella: 'assets/images/payung-15.jpg',
+  prodSandal: 'assets/images/sendal-2.webp',
   prodKaos: 'assets/images/kaos-1.jpeg',
 
   // About
-  about1: 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=700&q=80',
+  about1: 'assets/images/about-1.jpg',
 
   // Story steps
   story1: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=700&q=80',
@@ -36,11 +36,11 @@ const IMAGES = {
   story5: 'https://images.unsplash.com/photo-1578926288207-a90a5366759d?w=700&q=80',
 
   // School
-  school: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=700&q=80',
+  school: 'assets/images/ruang-kelas-1.jpg',
 
   // Custom / Apparel
   custom1: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80',
-  custom2: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80',
+  custom2: 'assets/images/totebag-5.jpg',
 
   // Gallery
   gallery: [
@@ -63,15 +63,21 @@ const IMAGES = {
 
   // Gallery captions (parallel array)
   galleryCaptions: [
-    'Seni Melukis',
-    'Proses Berkarya',
-    'Kanvas & Media',
-    'Eksplorasi Warna',
-    'Tote Bag Kreatif',
-    'Apparel Lokal',
-    'Workshop Seni',
-    'Palet & Kuas',
-    'Karya Final',
+    'Hasil karya seni',
+    'Menggunakan alat dan bahan premium',
+    'Tuangkan imajinasimu disini ',
+    'Hasil karya seni',
+    'Payung lukis',
+    'Satu set payung lukis siap pakai',
+    'Karya anak bangsa',
+    'Disetiap goresan pasti ada makna',
+    'Custom kaos sesuai selera',
+    'Kipas medai kreativitas',
+    'Satu set topeng lukis siap pakai',
+    'Payung lukis',
+    'Karya anak bangsa',
+    'Disetiap goresan pasti ada makna',
+    'Custom kaos sesuai selera',
   ]
 };
 
@@ -850,9 +856,9 @@ function initProducts() {
     },
     {
       img: IMAGES.prodPaint,
-      cat: 'Cat & Pigmen',
-      name: 'Cat Lukis',
-      desc: 'Cat akrilik, cat air, dan cat minyak dengan pilihan warna lengkap dan pigmen pekat.',
+      cat: 'Cat Acrylik',
+      name: 'Cat Acrylik Lukis 100 gr',
+      desc: 'Cat lukis tersedia dalam 6 pilihan warna.',
     },
     {
       img: IMAGES.prodTote,

@@ -281,6 +281,32 @@ body.cursor-hover #cursor-label {
   color: white;
 }
 
+#navbar .logo-brand-text,
+#mobile-menu .logo-brand-text {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.24em;
+  line-height: 1;
+}
+
+#navbar .logo-brand-kanvaz,
+#mobile-menu .logo-brand-kanvaz {
+  font-family: "More Sugar Regular", var(--font-body);
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+#navbar .logo-brand-galeri,
+#mobile-menu .logo-brand-galeri {
+  font-family: "Brittany Signature", cursive;
+  font-size: clamp(1.2rem, 1.6vw, 1.55rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
 @media (max-width: 1024px) {
   .logo-brand-image {
     height: 1.8rem;
